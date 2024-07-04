@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro'
 
 const { frontmatter } = Astro.props;
 const { title, pubDate, description, author, authorDescription, imageAuthor, image, tags, authorSocial, minRead } = frontmatter; 
-console.log(frontmatter);
+
 ---
 
 <html lang="es">
@@ -13,7 +13,7 @@ console.log(frontmatter);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{title}</title>
   </head>
   <body class="text-white bg-neutral-950">
     <div

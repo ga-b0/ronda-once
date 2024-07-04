@@ -42,7 +42,7 @@ Terminaré el tutorial de Astro, y luego seguiré añadiendo más publicaciones.
 ### Subtítulo de tipo H3 (Bloque de código)
 
 ```cs:
-    public void suma (int num1, int num2)
+    public int suma (int num1, int num2)
     {
         return num1 + num2;
     }
