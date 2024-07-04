@@ -1,0 +1,44 @@
+---
+import "../styles/post.css";
+import Footer from '../components/Footer.astro'
+
+const { frontmatter } = Astro.props;
+const { title, pubDate, description, author, authorDescription, imageAuthor, image, tags, authorSocial, minRead } = frontmatter; 
+console.log(frontmatter);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="text-white bg-neutral-950">
+    <div
+      class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
+    <header class="header">
+      <h1 class="header__title">{title}</h1>
+      <div class="header__card">
+        <figure class="header__figure">
+          <img src={imageAuthor.url} alt={imageAuthor.alt} class="header__img"/>
+        </figure>
+		<div class="header__author">
+			<a href={authorSocial} class="header__author__name">{author} /</a>
+			<p class="header__author__description">{authorDescription}</p>
+		</div>
+      </div>
+	  <p class="header__date">{pubDate} | {minRead}</p>
+	  <figure class="header__figure__post">
+		  <img src={image.url} alt={image.alt} class="header__image__post">
+	  </figure>
+    </header>
+    <main class="main">
+      <slot />
+    </main>
+	<Footer currentYear="2024" />
+  </body>
+</html>
