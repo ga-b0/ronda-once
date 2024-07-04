@@ -8,7 +8,7 @@ author: 'Gabriel Calderón'
 authorDescription: "Game Developer"
 authorSocial: 'https://github.com/ga-b0/'
 imageAuthor: 
-    url: 'https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1881'
+    url: 'https://live.staticflickr.com/65535/53834601272_b6d926f0e9_n.jpg'
     alt: 'Gabriel Calderón'
 image:
     url: 'https://docs.astro.build/assets/rays.webp'
