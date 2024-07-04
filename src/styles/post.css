@@ -123,4 +123,8 @@ ul {
     .header__figure {
         width: 15%;
     }
+
+    .header__title {
+        font-size: 2rem;
+    }
 }
