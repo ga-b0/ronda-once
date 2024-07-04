@@ -1,53 +1,69 @@
 ---
-import '@fontsource/inter';
-import Footer from '../components/Footer.astro'
+import "@fontsource/inter";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
-const allPosts = await Astro.glob('../pages/posts/*.md');
+const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="generator" content={Astro.generator} />
-		<title>Ronda Once</title>
-		<style>
-			html, body {
-				height: 100%;
-			}
-			body {
-				display: flex;
-				flex-direction: column;
-			}
-			main {
-				flex: 1;
-			}
-		</style>
-	</head>
-	<body class="text-white bg-neutral-950">
-		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-		<header class="w-[70%] mx-auto flex items-center p-6 justify-center text-center gap-2">
-			<figure class="w-auto h-[50px]">
-				<img src="https://i.redd.it/tu3gt6ysfxq71.png" class="block w-[100%] h-[100%] object-contain">
-			</figure>
-			<h1 class="font-inter font-bold text-2xl">Ronda Once</h1>
-		</header>
-		<main class="sm:w-[95%] w-[90%] mx-auto">
-			<ul class="sm:flex sm:flex-row flex flex-col flex-wrap justify-center gap-6 items-center">
-				{allPosts.map((post) => 
-				<li class=" text-black relative rounded-xl h-[250px] mb-4">
-					<figure class="w-[100%] h-full">
-						<img src={post.frontmatter.image.url} alt={post.frontmatter.image.alt} class="rounded-xl h-full object-cover filter brightness-50">
-					</figure>
-					<div class="absolute bottom-5 p-4">
-						<a class="z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold text-xl text-center text-white" href={post.url}>{post.frontmatter.title}</a>
-						<p class="text-white font-semibold text-sm">{post.frontmatter.description}</p>
-						<p class="text-white text-xs">{post.frontmatter.pubDate}</p>
-					</div>
-				</li>)}
-			</ul>
-		</main>
-		<Footer currentYear="2024" />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+	<link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Ronda Once</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body class="text-white bg-neutral-950">
+    <div
+      class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
+    <Header />
+    <main class="sm:w-[95%] w-[90%] mx-auto">
+      <ul
+        class="sm:flex sm:flex-row flex flex-col flex-wrap justify-center gap-6 items-center"
+      >
+        {
+          allPosts.map((post) => (
+            <li class=" text-black relative rounded-xl h-[250px] mb-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
+              <figure class="w-[100%] h-full">
+                <img
+                  src={post.frontmatter.image.url}
+                  alt={post.frontmatter.image.alt}
+                  class="rounded-xl h-full object-cover filter brightness-50"
+                />
+              </figure>
+              <div class="absolute bottom-5 p-4">
+                <a
+                  class="z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold text-xl text-center text-white"
+                  href={post.url}
+                >
+                  {post.frontmatter.title}
+                </a>
+                <p class="text-white font-semibold text-sm">
+                  {post.frontmatter.description}
+                </p>
+                <p class="text-white text-xs">{post.frontmatter.pubDate}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+    <Footer currentYear="2024" />
+  </body>
 </html>

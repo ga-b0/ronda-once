@@ -1,6 +1,7 @@
 ---
 import "../styles/post.css";
 import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
 
 const { frontmatter } = Astro.props;
 const { title, pubDate, description, author, authorDescription, imageAuthor, image, tags, authorSocial, minRead } = frontmatter; 
@@ -10,9 +11,10 @@ const { title, pubDate, description, author, authorDescription, imageAuthor, ima
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+	<meta name="description" content="Ronda Once es un blog dedicado a publicar artículos relacionados el Desarrollo de Videojuegos y Programación">
     <title>{title}</title>
   </head>
   <body class="text-white bg-neutral-950">
@@ -20,14 +22,15 @@ const { title, pubDate, description, author, authorDescription, imageAuthor, ima
       class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <header class="header">
+	<Header />
+    <section class="header">
       <h1 class="header__title">{title}</h1>
       <div class="header__card">
         <figure class="header__figure">
           <img src={imageAuthor.url} alt={imageAuthor.alt} class="header__img"/>
         </figure>
 		<div class="header__author">
-			<a href={authorSocial} class="header__author__name">{author} /</a>
+			<a href={authorSocial} class="header__author__name hover:underline">{author} /</a>
 			<p class="header__author__description">{authorDescription}</p>
 		</div>
       </div>
@@ -35,7 +38,7 @@ const { title, pubDate, description, author, authorDescription, imageAuthor, ima
 	  <figure class="header__figure__post">
 		  <img src={image.url} alt={image.alt} class="header__image__post">
 	  </figure>
-    </header>
+    </section>
     <main class="main">
       <slot />
     </main>
